@@ -5,7 +5,7 @@ sack = {"red": 12, "green": 13, "blue": 14}
 
 def check_possible(sack, line):
     games = []
-    game, id = line.split(":")[1], line.split(":")[0].split(" ")[1]
+    game, id = line.split(":")[1], int(line.split(":")[0].split(" ")[1])
     played = game.split(";")
 
     for game in played:
@@ -20,10 +20,9 @@ def check_possible(sack, line):
 
     for gamepieces in games:
         for gamepiece in gamepieces:
-            print(gamepieces[gamepiece], sack[gamepiece])
             if gamepieces[gamepiece] > sack[gamepiece]:
-                return False, id
-    return True, id
+                return 0
+    return id
 
 def min_am(line):
     game, id = line.split(":")[1], line.split(":")[0].split(" ")[1]
@@ -43,16 +42,14 @@ def min_am(line):
 #sol1
 possible = 0
 for line in data:
-    valid, id = check_possible(sack, line.strip("\n"))
-    if valid:
-        print("valid", line, id)
-        possible += int(id)
+    possible += check_possible(sack, line.strip("\n"))
+print(possible)
+        
 
 #sol2
 sum = 0
 for line in data:
     least_dic = min_am(line.strip("\n"))
-    print(least_dic)
     mul = 1
     for key in least_dic:
         mul *= least_dic[key]

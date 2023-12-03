@@ -33,6 +33,8 @@ for line_index, line in enumerate(data):
 sum = 0
 mulsum = 0
 pairs = {}
+
+#dear god forgive me for this
 for key in numbers:
     for x_value in range(key[1],key[2]):
         adjecent = find_adjacent_symbol(int(key[0]), x_value)

@@ -1,11 +1,3 @@
-import os
-import sys
-import time
-from aocd import submit
-from aocd.models import Puzzle
-import itertools
-import functools
-
 def format_data(raw):
     return raw
     
@@ -17,6 +9,14 @@ def star2(data):
 
 # -----------------------------------------------------------------------------------------
 # Elis script grejer här under ;) https://github.com/eliskleen/AOC/blob/master/2023/day_.py
+
+import os
+import sys
+import time
+from aocd import submit
+from aocd.models import Puzzle
+import itertools
+import functools
 
 def day_():
     year = int(os.getcwd().split('\\')[-1][3:7]) 

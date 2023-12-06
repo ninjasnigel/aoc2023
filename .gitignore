@@ -1,3 +1,4 @@
 *.aoc
 data*
 *.prof
+__pycache__

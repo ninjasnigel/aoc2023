@@ -11,4 +11,4 @@ def star2(data):
 from elis_script import *
 
 if __name__ == '__main__':
-    main(format_data, star1, star2)
+    main(format_data, star1, star2) # add year, day if not done on puzzle day

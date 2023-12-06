@@ -7,6 +7,9 @@ import itertools
 import functools
 import datetime
 
+today = datetime.datetime.now()
+year, day = today.year, today.day
+
 def day_(format_data, star1, star2, year, day):
     puzzle = Puzzle(year, day)
     submit_a = "a" in sys.argv
@@ -53,11 +56,9 @@ def day_(format_data, star1, star2, year, day):
         print(f'Star 1 answer: {ans1}')
         print(f'Star 2 answer: {ans2}')
 
-def main(format_data, star1, star2):
+def main(format_data, star1, star2, year=year, day=day):
     import cProfile
     import pstats
-    today = datetime.datetime.now()
-    year, day = today.year, today.day
     with cProfile.Profile() as pr:
         day_(format_data, star1, star2, year, day)
     stats = pstats.Stats(pr)

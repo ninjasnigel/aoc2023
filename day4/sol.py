@@ -1,47 +1,40 @@
 with open("day4/data.aoc", "r") as file: 
     data = [line.strip("\n") for line in file.readlines()]
 
-total = 0
-for line in data:
+cards = []
+#Proccess data
+for line in [line for line in data if line]:
     line = line.split(":")[1]
     card, winning = line.split("|")
     card, winning = card.split(" "), winning.split(" ")
+    cards.append((card, winning))
+
+#Calculate points
+total = 0
+for card in cards:
     points = 0.5
-    for number in [x for x in card if x]:
-        if number in winning:
+    for number in [x for x in card[0] if x]:
+        if number in card[1]:
             points = points*2
     if points != 0.5:
         total += points
-    
-cards = 0
+print(total)
 
-def check_win(amount_to_check, start):
-    cards = 1
-    won_amount = 0
-    if amount_to_check == 0:
-        return 0
-    loop_to = start + amount_to_check
-    if loop_to > len(data):
-        loop_to = len(data)
-    for i in range(start, loop_to):
-        won_amount = check_line(data[i])
-        for j in range(i+1, i+won_amount+1):
-            cards += check_win(1, j)
+def revurv_win_check(start_index):
+    card_amount = 1
+    wins = 0
+    loop_to = start_index+1+wins
+    for number in cards[start_index][0]:
+        if number in cards[start_index][1]:
+            wins += 1
+    if start_index+1+wins > len(cards):
+        loop_to = len(cards)
+    for i in range(start_index+1, loop_to):
+        card_amount += revurv_win_check(i)
+    return card_amount
 
-    return cards
+card_amount = 0
+for i in range(len(cards)):
+    card_amount += revurv_win_check(i)
 
-def check_line(line):
-    won = 0
-    line = line.split(":")[1]
-    card, winning = line.split("|")
-    card, winning = card.split(" "), winning.split(" ")
-    for number in [x for x in card if x]:
-        if number in winning:
-            won += 1
-    return won
-
-for i in range(len(data)):
-    total += check_win(1, i)
-
-#jfc i had the correct answer but spent so much fucking time before realizing that i forgot to count the og cards
-print(len(data) - 1 + check_win(len(data), 0))
+print(card_amount)

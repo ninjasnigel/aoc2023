@@ -15,6 +15,8 @@ def star1(data):
 def star2(data):
     return 0
 
+# Elis script grejer här under ;) https://github.com/eliskleen/AOC/blob/master/2023/day_.py
+
 def day_():
     year = int(os.getcwd().split('\\')[-1][3:7]) 
     day = int(__file__.split('\\')[-1].split('_')[1].split('.')[0])
@@ -78,6 +80,3 @@ def main():
 # run with `py day_n.py -- a b` to submit both stars for day n
 if __name__ == '__main__':
     main()
-
-#https://github.com/eliskleen/AOC/blob/master/2023/day_.py
-#tack elis för detta script änna ;)

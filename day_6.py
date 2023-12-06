@@ -105,6 +105,3 @@ def main():
 # run with `py day_n.py -- a b` to submit both stars for day n
 if __name__ == '__main__':
     main()
-
-#https://github.com/eliskleen/AOC/blob/master/2023/day_.py
-#tack elis för detta script änna ;)

@@ -15,6 +15,7 @@ def star1(data):
 def star2(data):
     return 0
 
+# -----------------------------------------------------------------------------------------
 # Elis script grejer här under ;) https://github.com/eliskleen/AOC/blob/master/2023/day_.py
 
 def day_():

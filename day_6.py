@@ -12,6 +12,9 @@ records = [302, 1476, 1029, 1404]
 races_2 = [54946592]
 records_2 = [302147610291404]
 
+def format_data(raw):
+    return raw
+
 def get_record_breakers(races, records):
     records_breakers = []
     for i,race in enumerate(races):
@@ -35,10 +38,8 @@ def star1(data):
 def star2(data):
     return get_record_breakers(races_2, records_2)[0]
 
+# -----------------------------------------------------------------------------------------
 # Elis script grejer här under ;) https://github.com/eliskleen/AOC/blob/master/2023/day_.py
-
-def format_data(raw):
-    return raw
 
 def day_():
     year = int(os.getcwd().split('\\')[-1][3:7]) 

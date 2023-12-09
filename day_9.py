@@ -45,7 +45,6 @@ def star2(data):
         sequences.reverse()
         for sequence in sequences:
             sequence.insert(0, 0)
-        print(sequences)
         for j in range(1, len(sequences)):
             sequences[j][0] = sequences[j][1] - sequences[j-1][0]
         sum += sequences[-1][0]
